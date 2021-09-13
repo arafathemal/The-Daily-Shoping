@@ -17,11 +17,11 @@ const showProducts = (products) => {
       <div>
     <img class="product-image" src=${product.image}></img>
       </div>
-      <h3 class="h3-color">${product.title}</h3>
+      <h4 class="h3-color">${product.title}</h4>
       <p><span class="color">Category</span>: ${product.category}</p>
-      <h2><span class="color">Price</span>: $ ${product.price}</h2>
-      <h5><span class="color">Rating count</span>: <b>${product.rating.count}</b></h5>
-      <h5><span class="color">Rate</span>: <b>${product.rating.rate}</b></h5>
+      <h5><span class="color">Price</span>: $ ${product.price}</h5>
+      <h6><span class="color">Rating count</span>: <b>${product.rating.count}</b></h6>
+      <h6><span class="color">Rate</span>: <b>${product.rating.rate}</b></h6>
       <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
       <button id="details-btn" class="btn btn-danger">Details</button></div>
       `;
@@ -49,7 +49,7 @@ const updatePrice = (id, value) => {
   const convertedOldPrice = getInputValue(id);
   const convertPrice = parseFloat(value);
   const total = convertedOldPrice + convertPrice;
-  document.getElementById(id).innerText = total.toFixed(2);
+  document.getElementById(id).innerText = parseFloat(total).toFixed(2);
 };
 
 // set innerText function
@@ -72,6 +72,7 @@ const updateTaxAndCharge = () => {
     setInnerText("delivery-charge", 60);
     setInnerText("total-tax", (priceConverted * 0.4).toFixed(2));
   }
+  updateTotal();
 };
 
 //grandTotal update function
@@ -79,7 +80,6 @@ const updateTotal = () => {
   const grandTotal =
     getInputValue("price") + getInputValue("delivery-charge") +
     getInputValue("total-tax");
-  document.getElementById("total").innerText = grandTotal;
+  document.getElementById("total").innerText =parseFloat(grandTotal).toFixed(2);
 };
-updateTotal();
 loadProducts();

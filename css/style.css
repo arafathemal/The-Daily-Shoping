@@ -35,6 +35,15 @@ body {
   align-items: center;
   justify-content: center;
 }
+/*cart color part */
+.h3-color{
+  color: rgb(64, 209, 209);
+}
+.color{
+  color: rgb(25, 87, 112);
+
+}
+/*cart color end */
 .single-product {
   padding: 10px;
   transition: 0.6s;
